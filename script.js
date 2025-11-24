@@ -144,7 +144,7 @@
   const orangeItems = [];
 
   // 黃色：固定座標 + 各自 InfoWindow（點擊 toggle 開關）
-  for (const p of places) {
+  function createPlaceMarker(p) {
     const pos = { lat: p.lat, lng: p.lng };
 
     const marker = new google.maps.Marker({
@@ -158,12 +158,12 @@
       content: `<b style="font-size:14px;color:#7a5">${p.jp}</b><div>${p.en}</div>`
     });
 
-    // 初始：自動打開
+    // 初始打開
     iw.open({ map, anchor: marker });
 
     let isOpen = true;
 
-    // 點黃色圖標：toggle 開 / 關
+    // 左鍵：toggle 開 / 關
     marker.addListener('click', () => {
       if (isOpen) {
         iw.close();
@@ -173,9 +173,60 @@
       isOpen = !isOpen;
     });
 
+    // ⭐ 右鍵：詢問是否刪除這個黃色點
+    marker.addListener('rightclick', () => {
+      const ok = confirm('要刪除這個地標嗎？');
+      if (!ok) return;
+
+      // 1. 從地圖移除 marker & InfoWindow
+      iw.close();
+      marker.setMap(null);
+
+      // 2. 從 yellowInfoWindows 陣列移除這個 iw（可有可無，但比較乾淨）
+      const iwIndex = yellowInfoWindows.indexOf(iw);
+      if (iwIndex >= 0) yellowInfoWindows.splice(iwIndex, 1);
+
+      // 3. 從 places 陣列移除對應物件
+      const placeIndex = places.indexOf(p);
+      if (placeIndex >= 0) places.splice(placeIndex, 1);
+
+      // 4. 如果你有要重新算 bounds / fitBounds，也可以在這裡做（可選）
+      //    目前可以先不動地圖視角，使用上比較直覺
+      console.log('Place removed:', { lat: p.lat, lng: p.lng, jp: p.jp, en: p.en });
+    });
+
     yellowInfoWindows.push(iw);
     bounds.extend(pos);
   }
+
+  // ★ 初始化：把 GitHub 來的 places 都畫出來
+  for (const p of places) {
+    createPlaceMarker(p);
+  }
+
+  // ★ 共用：右鍵新增 place 的處理函式
+  function handleMapRightClick(e) {
+    if (!e.latLng) return;
+
+    const lat = +e.latLng.lat().toFixed(6);
+    const lng = +e.latLng.lng().toFixed(6);
+
+    const jp = prompt('新增 place 的日文名稱（jp）：', '');
+    if (jp === null) return; // 按取消就不建立
+
+    const en = prompt('新增 place 的英文名稱（en）：', '');
+    if (en === null) return;
+
+    const newPlace = { lat, lng, jp, en };
+
+    places.push(newPlace);
+    createPlaceMarker(newPlace);
+
+    console.log('New place added:', newPlace);
+  }
+
+  // 地圖空白處右鍵 → 新增 place
+  map.addListener('rightclick', handleMapRightClick);
 
   // 橘色：圓 + 滑桿控制
   for (const p of groups) {
@@ -189,14 +240,19 @@
       title: p.name
     });
 
-    // ★ 新增：白底＋陰影的小 Label，貼在橘色點上方
     const labelOverlay = new OrangeLabel(new google.maps.LatLng(pos.lat, pos.lng), p.name, map);
 
     const circle = new google.maps.Circle({
-      map, center: pos, radius: p.radiusM,
-      strokeColor:'#FF7A00', strokeOpacity:0.9, strokeWeight:2,
-      fillColor:'#FF7A00', fillOpacity:0.15
+      map,
+      center: pos,
+      radius: p.radiusM,
+      strokeColor:'#FF7A00',
+      strokeOpacity:0.9,
+      strokeWeight:2,
+      fillColor:'#FF7A00',
+      fillOpacity:0.15
     });
+
     circle.bindTo('center', marker, 'position');
 
     // 拖曳時讓 label 跟著位置移動
@@ -204,6 +260,12 @@
       const currentPos = marker.getPosition();
       if (currentPos) labelOverlay.setPosition(currentPos);
     });
+
+    // ★ 在橘色圈圈裡右鍵 → 也當作新增 place
+    circle.addListener('rightclick', handleMapRightClick);
+
+    // ★ 在橘色圓點上右鍵 → 一樣新增 place（選擇性，但通常很直覺）
+    marker.addListener('rightclick', handleMapRightClick);
 
     orangeItems.push({ name: p.name, marker, circle, labelOverlay });
     bounds.extend(pos);
@@ -214,7 +276,7 @@
   const control = document.createElement('div');
   control.style.cssText =
     'position:fixed;bottom:10px;right:10px;background:#fff;padding:10px;border:1px solid #ccc;border-radius:8px;max-height:60vh;overflow-y:auto;font-family:system-ui;font-size:12px;z-index:99999;';
-  control.innerHTML = `<b style="font-size:13px;">:large_orange_circle: Orange Radius Control</b><br>`;
+  control.innerHTML = `<b style="font-size:13px;">Orange Radius Control</b><br>`;
 
   for (const o of orangeItems) {
     const block = document.createElement('div');
