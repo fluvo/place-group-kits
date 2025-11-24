@@ -235,13 +235,13 @@
       ? toNum(latLng.lng())
       : toNum(latLng.lng);
 
-    const jp = prompt('新增地點：輸入主要名稱', '');
-    if (jp === null) return;
+    const name = prompt('新增地點：輸入主要名稱', '');
+    if (name === null) return;
 
-    const en = prompt('新增地點：輸入英文名稱', '');
-    if (en === null) return;
+    const name_en = prompt('新增地點：輸入英文名稱', '');
+    if (name_en === null) return;
 
-    const newPlace = { lat, lng, jp, en };
+    const newPlace = { lat, lng, name, name_en };
     places.push(newPlace);
     createPlaceMarker(newPlace);
 
