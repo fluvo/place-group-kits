@@ -263,7 +263,7 @@
         name: groupData.name,
         lat: groupData.lat,
         lng: groupData.lng,
-        radiusM: groupData.radiusM
+        radius: groupData.radius
       });
     }
 
@@ -280,7 +280,7 @@
     const circle = new google.maps.Circle({
       map,
       center: pos,
-      radius: groupData.radiusM,
+      radius: groupData.radius,
       strokeColor:'#FF7A00',
       strokeOpacity:0.9,
       strokeWeight:2,
@@ -336,7 +336,7 @@
     const name = prompt('新增範圍：輸入名稱', defaultName);
     if (name === null) return;
 
-    const groupData = { name, lat, lng, radiusM: defaultRadius };
+    const groupData = { name, lat, lng, radius: defaultRadius };
 
     const { marker } = buildOrangeGroupOnMap(groupData);
     bounds.extend(marker.getPosition());
@@ -577,6 +577,18 @@
       const val = Math.round(Number(input.value));
       o.circle.setRadius(val);
       valueEl.textContent = `${val}m`;
+
+      // 同步更新 groups 裡對應範圍的 radius
+      const pos = o.marker && o.marker.getPosition();
+      if (pos) {
+        const g = groups.find(g =>
+          g.name === o.name &&
+          Math.abs(g.lat - +pos.lat().toFixed(6)) < 1e-6 &&
+          Math.abs(g.lng - +pos.lng().toFixed(6)) < 1e-6
+        );
+        if (g) g.radius = val;
+      }
+
       printOrangeState();
     };
 
@@ -602,7 +614,7 @@
   function printOrangeState() {
     const arr = orangeItems.map(o => {
       const pos = o.marker.getPosition();
-      return { name:o.name, lat:+pos.lat().toFixed(6), lng:+pos.lng().toFixed(6), radiusM:Math.round(o.circle.getRadius()) };
+      return { name:o.name, lat:+pos.lat().toFixed(6), lng:+pos.lng().toFixed(6), radius:Math.round(o.circle.getRadius()) };
     });
     console.clear();
     console.log(JSON.stringify(arr, null, 2));
