@@ -1,0 +1,150 @@
+{
+  "JP": {
+    "JP-13": {
+      "locales": {
+        "ja": { "name": "東京都" },
+        "en": { "name": "Tokyo Metropolis" }
+      },
+      "areas": {
+        "13101": {
+          "locales": {
+            "ja": { "name": "千代田区" },
+            "en": { "name": "Chiyoda ku" }
+          }
+        },
+        "13102": {
+          "locales": {
+            "ja": { "name": "中央区" },
+            "en": { "name": "Chuo ku" }
+          }
+        },
+        "13103": {
+          "locales": {
+            "ja": { "name": "港区" },
+            "en": { "name": "Minato ku" }
+          }
+        },
+        "13104": {
+          "locales": {
+            "ja": { "name": "新宿区" },
+            "en": { "name": "Shinjuku ku" }
+          }
+        },
+        "13105": {
+          "locales": {
+            "ja": { "name": "文京区" },
+            "en": { "name": "Bunkyo ku" }
+          }
+        },
+        "13106": {
+          "locales": {
+            "ja": { "name": "台東区" },
+            "en": { "name": "Taito ku" }
+          }
+        },
+        "13107": {
+          "locales": {
+            "ja": { "name": "墨田区" },
+            "en": { "name": "Sumida ku" }
+          }
+        },
+        "13108": {
+          "locales": {
+            "ja": { "name": "江東区" },
+            "en": { "name": "Koto ku" }
+          }
+        },
+        "13109": {
+          "locales": {
+            "ja": { "name": "品川区" },
+            "en": { "name": "Shinagawa ku" }
+          }
+        },
+        "13110": {
+          "locales": {
+            "ja": { "name": "目黒区" },
+            "en": { "name": "Meguro ku" }
+          }
+        },
+        "13111": {
+          "locales": {
+            "ja": { "name": "大田区" },
+            "en": { "name": "Ota ku" }
+          }
+        },
+        "13112": {
+          "locales": {
+            "ja": { "name": "世田谷区" },
+            "en": { "name": "Setagaya ku" }
+          }
+        },
+        "13113": {
+          "locales": {
+            "ja": { "name": "渋谷区" },
+            "en": { "name": "Shibuya ku" }
+          }
+        },
+        "13114": {
+          "locales": {
+            "ja": { "name": "中野区" },
+            "en": { "name": "Nakano ku" }
+          }
+        },
+        "13115": {
+          "locales": {
+            "ja": { "name": "杉並区" },
+            "en": { "name": "Suginami ku" }
+          }
+        },
+        "13116": {
+          "locales": {
+            "ja": { "name": "豊島区" },
+            "en": { "name": "Toshima ku" }
+          }
+        },
+        "13117": {
+          "locales": {
+            "ja": { "name": "北区" },
+            "en": { "name": "Kita ku" }
+          }
+        },
+        "13118": {
+          "locales": {
+            "ja": { "name": "荒川区" },
+            "en": { "name": "Arakawa ku" }
+          }
+        },
+        "13119": {
+          "locales": {
+            "ja": { "name": "板橋区" },
+            "en": { "name": "Itabashi ku" }
+          }
+        },
+        "13120": {
+          "locales": {
+            "ja": { "name": "練馬区" },
+            "en": { "name": "Nerima ku" }
+          }
+        },
+        "13121": {
+          "locales": {
+            "ja": { "name": "足立区" },
+            "en": { "name": "Adachi ku" }
+          }
+        },
+        "13122": {
+          "locales": {
+            "ja": { "name": "葛飾区" },
+            "en": { "name": "Katsushika ku" }
+          }
+        },
+        "13123": {
+          "locales": {
+            "ja": { "name": "江戸川区" },
+            "en": { "name": "Edogawa ku" }
+          }
+        }
+      }
+    }
+  }
+}

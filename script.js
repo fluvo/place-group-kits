@@ -18,7 +18,7 @@
   const places = await fetch('https://raw.githubusercontent.com/fluvo/place-group-kits/refs/heads/main/places.json')
     .then(response => response.json());
 
-  // get groups (object keyed by id)
+  // get groups
   const groups = await fetch('https://raw.githubusercontent.com/fluvo/place-group-kits/refs/heads/main/groups.json')
     .then(response => response.json());
 
@@ -401,7 +401,7 @@
   // 地圖空白處右鍵 → 選單（新增地點 / 新增範圍）
   map.addListener('rightclick', handleMapRightClick);
 
-  // 特別版 JSON.stringify：key 順序為 id, locales，其餘按字母排序
+  // 特別版 JSON.stringify：key 順序為 locales、countryCode、areaCode、placeIds，其餘按字母排序
   function stringifyWithCustomKeyOrder(value, space = 2) {
     function reorderKeys(obj) {
       if (obj === null || typeof obj !== 'object') return obj;
@@ -411,7 +411,7 @@
       }
 
       const keys = Object.keys(obj);
-      const special = ['id', 'locales', 'placeIds'].filter(k => keys.includes(k));
+      const special = ['locales', 'countryCode', 'areaCode', 'placeIds'].filter(k => keys.includes(k));
       const others = keys.filter(k => !special.includes(k)).sort();
 
       const ordered = {};
