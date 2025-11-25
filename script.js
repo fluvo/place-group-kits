@@ -146,6 +146,15 @@
   const yellowInfoWindows = [];
   const orangeItems = [];
 
+  function generatePlaceId() {
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let id = '';
+    for (let i = 0; i < 6; i++) {
+      id += letters[Math.floor(Math.random() * letters.length)];
+    }
+    return id;
+  }
+
   // 黃色：固定座標 + 各自 InfoWindow（點擊 toggle 開關；右鍵選單：1 編輯 / 2 刪除）
   function createPlaceMarker(p) {
     const pos = { lat: p.lat, lng: p.lng };
@@ -154,11 +163,11 @@
       map,
       position: pos,
       icon: svgYellowPin,
-      title: `${p.name} (${p.name_en})`
+      title: `${p.locale.name.ja} (${p.locale.name.en})`
     });
 
     const iw = new google.maps.InfoWindow({
-      content: `<b style="font-size:14px;color:#7a5">${p.name}</b><div>${p.name_en}</div>`
+      content: `<b style="font-size:14px;color:#7a5">${p.locale.name.ja}</b><div>${p.locale.name.en}</div>`
     });
 
     // 初始打開
@@ -182,16 +191,18 @@
       if (choice === null) return;
 
       if (choice === '1') {
-        const newJp = prompt('重新設定：輸入主要名稱', p.name);
+        const newJp = prompt('重設地點：輸入主要名稱', p.locale?.name?.ja || '');
         if (newJp === null) return;
-        const newEn = prompt('重新設定：輸入英文名稱', p.name_en);
+        const newEn = prompt('重設地點：輸入英文名稱', p.locale?.name?.en || '');
         if (newEn === null) return;
 
-        p.name = newJp;
-        p.name_en = newEn;
+        p.locale = p.locale || {};
+        p.locale.name = p.locale.name || {};
+        p.locale.name.ja = newJp;
+        p.locale.name.en = newEn;
 
-        marker.setTitle(`${p.name} (${p.name_en})`);
-        iw.setContent(`<b style="font-size:14px;color:#7a5">${p.name}</b><div>${p.name_en}</div>`);
+        marker.setTitle(`${p.locale.name.ja} (${p.locale.name.en})`);
+        iw.setContent(`<b style="font-size:14px;color:#7a5">${p.locale.name.ja}</b><div>${p.locale.name.en}</div>`);
         if (!isOpen) {
           iw.open({ map, anchor: marker });
           isOpen = true;
@@ -209,7 +220,7 @@
         const placeIndex = places.indexOf(p);
         if (placeIndex >= 0) places.splice(placeIndex, 1);
 
-        console.log('Place removed:', { lat: p.lat, lng: p.lng, jp: p.name, en: p.name_en });
+        console.log('Place removed:', p);
       }
     });
 
@@ -235,13 +246,23 @@
       ? toNum(latLng.lng())
       : toNum(latLng.lng);
 
-    const name = prompt('新增地點：輸入主要名稱', '');
-    if (name === null) return;
+    const ja = prompt('新增地點：輸入主要名稱', '');
+    if (ja === null) return;
 
-    const name_en = prompt('新增地點：輸入英文名稱', '');
-    if (name_en === null) return;
+    const en = prompt('新增地點：輸入英文名稱', '');
+    if (en === null) return;
 
-    const newPlace = { lat, lng, name, name_en };
+    const newPlace = {
+      id: generatePlaceId(),
+      lat,
+      lng,
+      locale: {
+        name: {
+          ja,
+          en
+        }
+      }
+    };
     places.push(newPlace);
     createPlaceMarker(newPlace);
 
@@ -362,6 +383,30 @@
   // 地圖空白處右鍵 → 選單（新增地點 / 新增範圍）
   map.addListener('rightclick', handleMapRightClick);
 
+  // 特別版 JSON.stringify：key 順序為 id, locale，其餘按字母排序
+  function stringifyWithCustomKeyOrder(value, space = 2) {
+    function reorderKeys(obj) {
+      if (obj === null || typeof obj !== 'object') return obj;
+
+      if (Array.isArray(obj)) {
+        return obj.map(reorderKeys);
+      }
+
+      const keys = Object.keys(obj);
+      const special = ['id', 'locale'].filter(k => keys.includes(k));
+      const others = keys.filter(k => !special.includes(k)).sort();
+
+      const ordered = {};
+      for (const k of [...special, ...others]) {
+        ordered[k] = reorderKeys(obj[k]);
+      }
+      return ordered;
+    }
+
+    const normalized = reorderKeys(value);
+    return JSON.stringify(normalized, null, space);
+  }
+
   // === 橘色控制面板 ===
   const control = document.createElement('div');
   control.style.cssText =
@@ -370,7 +415,7 @@
 
   // 下載 JSON 小工具
   function downloadJson(filename, obj) {
-    const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json' });
+    const blob = new Blob([stringifyWithCustomKeyOrder(obj, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -617,7 +662,7 @@
       return { name:o.name, lat:+pos.lat().toFixed(6), lng:+pos.lng().toFixed(6), radius:Math.round(o.circle.getRadius()) };
     });
     console.clear();
-    console.log(JSON.stringify(arr, null, 2));
+    console.log(stringifyWithCustomKeyOrder(arr, 2));
   }
 
   // 拖曳更新後重新印出

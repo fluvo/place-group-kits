@@ -1,140 +1,255 @@
 [
   {
-    "name": "六本木",
-    "name_en": "Roppongi",
+    "id": "QKVRDC",
     "lat": 35.6628,
-    "lng": 139.731
+    "lng": 139.731,
+    "locale": {
+      "name": {
+        "ja": "六本木",
+        "en": "Roppongi"
+      }
+    }
   },
   {
-    "name": "麻布十番",
-    "name_en": "Azabu-Juban",
+    "id": "LXKGWF",
     "lat": 35.6546,
-    "lng": 139.7351
+    "lng": 139.7351,
+    "locale": {
+      "name": {
+        "ja": "麻布十番",
+        "en": "Azabu-Juban"
+      }
+    }
   },
   {
-    "name": "青山",
-    "name_en": "Aoyama",
+    "id": "UDEMSZ",
     "lat": 35.6646,
-    "lng": 139.722
+    "lng": 139.722,
+    "locale": {
+      "name": {
+        "ja": "青山",
+        "en": "Aoyama"
+      }
+    }
   },
   {
-    "name": "表参道",
-    "name_en": "Omotesando",
+    "id": "NZGQTY",
     "lat": 35.6655,
-    "lng": 139.7128
+    "lng": 139.7128,
+    "locale": {
+      "name": {
+        "ja": "表参道",
+        "en": "Omotesando"
+      }
+    }
   },
   {
-    "name": "原宿",
-    "name_en": "Harajuku",
+    "id": "WXUPJN",
     "lat": 35.6702,
-    "lng": 139.702
+    "lng": 139.702,
+    "locale": {
+      "name": {
+        "ja": "原宿",
+        "en": "Harajuku"
+      }
+    }
   },
   {
-    "name": "代官山",
-    "name_en": "Daikanyama",
+    "id": "KJZBTR",
     "lat": 35.6492,
-    "lng": 139.7036
+    "lng": 139.7036,
+    "locale": {
+      "name": {
+        "ja": "代官山",
+        "en": "Daikanyama"
+      }
+    }
   },
   {
-    "name": "恵比寿",
-    "name_en": "Ebisu",
+    "id": "HVCMAR",
     "lat": 35.6467,
-    "lng": 139.71
+    "lng": 139.71,
+    "locale": {
+      "name": {
+        "ja": "恵比寿",
+        "en": "Ebisu"
+      }
+    }
   },
   {
-    "name": "用賀",
-    "name_en": "Yoga",
+    "id": "SPGJNX",
     "lat": 35.6255,
-    "lng": 139.6301
+    "lng": 139.6301,
+    "locale": {
+      "name": {
+        "ja": "用賀",
+        "en": "Yoga"
+      }
+    }
   },
   {
-    "name": "二子玉川",
-    "name_en": "Futako-Tamagawa",
+    "id": "ABQKLE",
     "lat": 35.6101,
-    "lng": 139.6271
+    "lng": 139.6271,
+    "locale": {
+      "name": {
+        "ja": "二子玉川",
+        "en": "Futako-Tamagawa"
+      }
+    }
   },
   {
+    "id": "VYRLTC",
     "lat": 35.658754,
     "lng": 139.701113,
-    "name": "渋谷",
-    "name_en": "Shibuya"
+    "locale": {
+      "name": {
+        "ja": "渋谷",
+        "en": "Shibuya"
+      }
+    }
   },
   {
+    "id": "MPZQFW",
     "lat": 35.671543,
     "lng": 139.764289,
-    "name": "銀座",
-    "name_en": "Ginza"
+    "locale": {
+      "name": {
+        "ja": "銀座",
+        "en": "Ginza"
+      }
+    }
   },
   {
+    "id": "CNXJVR",
     "lat": 35.675029,
     "lng": 139.763301,
-    "name": "有楽町",
-    "name_en": "Yurakucho"
+    "locale": {
+      "name": {
+        "ja": "有楽町",
+        "en": "Yurakucho"
+      }
+    }
   },
   {
+    "id": "TGQFBN",
     "lat": 35.666313,
     "lng": 139.758559,
-    "name": "新橋",
-    "name_en": "Shinbashi"
+    "locale": {
+      "name": {
+        "ja": "新橋",
+        "en": "Shinbashi"
+      }
+    }
   },
   {
+    "id": "ZKHDPU",
     "lat": 35.664483,
     "lng": 139.770946,
-    "name": "築地",
-    "name_en": "Tsukiji"
+    "locale": {
+      "name": {
+        "ja": "築地",
+        "en": "Tsukiji"
+      }
+    }
   },
   {
+    "id": "RLCPQY",
     "lat": 35.664021,
     "lng": 139.783645,
-    "name": "月島",
-    "name_en": "Tsukishima"
+    "locale": {
+      "name": {
+        "ja": "月島",
+        "en": "Tsukishima"
+      }
+    }
   },
   {
+    "id": "JMFZKS",
     "lat": 35.672144,
     "lng": 139.736449,
-    "name": "赤坂",
-    "name_en": "Akasaka"
+    "locale": {
+      "name": {
+        "ja": "赤坂",
+        "en": "Akasaka"
+      }
+    }
   },
   {
+    "id": "BQYHND",
     "lat": 35.658372,
     "lng": 139.723052,
-    "name": "西麻布",
-    "name_en": "Nishi-Azabu"
+    "locale": {
+      "name": {
+        "ja": "西麻布",
+        "en": "Nishi-Azabu"
+      }
+    }
   },
   {
+    "id": "WNEKSU",
     "lat": 35.651881,
     "lng": 139.721313,
-    "name": "広尾",
-    "name_en": "Hiroo"
+    "locale": {
+      "name": {
+        "ja": "広尾",
+        "en": "Hiroo"
+      }
+    }
   },
   {
+    "id": "XJLCUT",
     "lat": 35.640745,
     "lng": 139.701133,
-    "name": "中目黒",
-    "name_en": "Naka-Meguro"
+    "locale": {
+      "name": {
+        "ja": "中目黒",
+        "en": "Naka-Meguro"
+      }
+    }
   },
   {
+    "id": "SDVQHM",
     "lat": 35.630805,
     "lng": 139.643842,
-    "name": "桜新町",
-    "name_en": "Sakura-Shimmachi"
+    "locale": {
+      "name": {
+        "ja": "桜新町",
+        "en": "Sakura-Shimmachi"
+      }
+    }
   },
   {
+    "id": "KUPHZA",
     "lat": 35.650183,
     "lng": 139.684279,
-    "name": "池尻大橋",
-    "name_en": "Ikejiri-Ohashi"
+    "locale": {
+      "name": {
+        "ja": "池尻大橋",
+        "en": "Ikejiri-Ohashi"
+      }
+    }
   },
   {
+    "id": "FGWXNB",
     "lat": 35.640837,
     "lng": 139.669087,
-    "name": "三軒茶屋",
-    "name_en": "Sangenjaya"
+    "locale": {
+      "name": {
+        "ja": "三軒茶屋",
+        "en": "Sangenjaya"
+      }
+    }
   },
   {
+    "id": "MLTZQH",
     "lat": 35.63278,
     "lng": 139.661663,
-    "name": "駒沢大学",
-    "name_en": "Komazawa-Daigaku"
+    "locale": {
+      "name": {
+        "ja": "駒沢大学",
+        "en": "Komazawa-Daigaku"
+      }
+    }
   }
 ]
