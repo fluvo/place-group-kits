@@ -250,8 +250,7 @@
 
   // ★ 初始化：把 GitHub 來的 places 都畫出來
   for (const [id, p] of Object.entries(places)) {
-    if (!p.id) p.id = id;
-    createPlaceMarker(p);
+    createPlaceMarker({ ...p, id });
   }
 
   // 共用：建立 place（latLng 可為 LatLng 或 {lat,lng}）
@@ -275,7 +274,6 @@
 
     const id = generateId();
     const newPlace = {
-      id,
       lat,
       lng,
       locales: {
@@ -663,7 +661,7 @@
 
     function doAddById(raw) {
       if (!raw) return;
-      const placeId = raw.trim().toUpperCase();
+      const placeId = raw.trim().toLowerCase();
       if (!placeId) return;
 
       const place = places[placeId];

@@ -1,6 +1,5 @@
 {
   "abqkle": {
-    "id": "ABQKLE",
     "countryCode": "JP",
     "areaCode": "13112",
     "locales": {
@@ -15,7 +14,6 @@
     "lng": 139.6271
   },
   "bqyhnd": {
-    "id": "BQYHND",
     "countryCode": "JP",
     "areaCode": "13103",
     "locales": {
@@ -30,7 +28,6 @@
     "lng": 139.723052
   },
   "cnxjvr": {
-    "id": "CNXJVR",
     "countryCode": "JP",
     "areaCode": "13101",
     "locales": {
@@ -45,7 +42,6 @@
     "lng": 139.763301
   },
   "fgwxnb": {
-    "id": "FGWXNB",
     "countryCode": "JP",
     "areaCode": "13112",
     "locales": {
@@ -60,7 +56,6 @@
     "lng": 139.669087
   },
   "hvcmar": {
-    "id": "HVCMAR",
     "countryCode": "JP",
     "areaCode": "13113",
     "locales": {
@@ -75,7 +70,6 @@
     "lng": 139.71
   },
   "jmfzks": {
-    "id": "JMFZKS",
     "countryCode": "JP",
     "areaCode": "13103",
     "locales": {
@@ -90,7 +84,6 @@
     "lng": 139.736449
   },
   "kjzbtr": {
-    "id": "KJZBTR",
     "countryCode": "JP",
     "areaCode": "13113",
     "locales": {
@@ -105,7 +98,6 @@
     "lng": 139.7036
   },
   "kuphza": {
-    "id": "KUPHZA",
     "countryCode": "JP",
     "areaCode": "13112",
     "locales": {
@@ -120,7 +112,6 @@
     "lng": 139.684279
   },
   "lxkgwf": {
-    "id": "LXKGWF",
     "countryCode": "JP",
     "areaCode": "13103",
     "locales": {
@@ -135,7 +126,6 @@
     "lng": 139.7351
   },
   "mltzqh": {
-    "id": "MLTZQH",
     "countryCode": "JP",
     "areaCode": "13112",
     "locales": {
@@ -150,7 +140,6 @@
     "lng": 139.661663
   },
   "mpzqfw": {
-    "id": "MPZQFW",
     "countryCode": "JP",
     "areaCode": "13102",
     "locales": {
@@ -165,7 +154,6 @@
     "lng": 139.764289
   },
   "nzgqty": {
-    "id": "NZGQTY",
     "countryCode": "JP",
     "areaCode": "13113",
     "locales": {
@@ -180,7 +168,6 @@
     "lng": 139.7128
   },
   "qkvrdc": {
-    "id": "QKVRDC",
     "countryCode": "JP",
     "areaCode": "13103",
     "locales": {
@@ -195,7 +182,6 @@
     "lng": 139.731
   },
   "rlcpqy": {
-    "id": "RLCPQY",
     "countryCode": "JP",
     "areaCode": "13102",
     "locales": {
@@ -210,7 +196,6 @@
     "lng": 139.783645
   },
   "sdvqhm": {
-    "id": "SDVQHM",
     "countryCode": "JP",
     "areaCode": "13112",
     "locales": {
@@ -225,7 +210,6 @@
     "lng": 139.643842
   },
   "spgjnx": {
-    "id": "SPGJNX",
     "countryCode": "JP",
     "areaCode": "13112",
     "locales": {
@@ -240,7 +224,6 @@
     "lng": 139.6301
   },
   "tgqfbn": {
-    "id": "TGQFBN",
     "countryCode": "JP",
     "areaCode": "13103",
     "locales": {
@@ -255,7 +238,6 @@
     "lng": 139.758559
   },
   "udemsz": {
-    "id": "UDEMSZ",
     "countryCode": "JP",
     "areaCode": "13103",
     "locales": {
@@ -270,7 +252,6 @@
     "lng": 139.722
   },
   "vyrltc": {
-    "id": "VYRLTC",
     "countryCode": "JP",
     "areaCode": "13113",
     "locales": {
@@ -285,7 +266,6 @@
     "lng": 139.701113
   },
   "wneksu": {
-    "id": "WNEKSU",
     "countryCode": "JP",
     "areaCode": "13113",
     "locales": {
@@ -300,7 +280,6 @@
     "lng": 139.721313
   },
   "wxupjn": {
-    "id": "WXUPJN",
     "countryCode": "JP",
     "areaCode": "13113",
     "locales": {
@@ -315,7 +294,6 @@
     "lng": 139.702
   },
   "xjlcut": {
-    "id": "XJLCUT",
     "countryCode": "JP",
     "areaCode": "13110",
     "locales": {
@@ -330,7 +308,6 @@
     "lng": 139.701133
   },
   "zkhdpu": {
-    "id": "ZKHDPU",
     "countryCode": "JP",
     "areaCode": "13102",
     "locales": {
